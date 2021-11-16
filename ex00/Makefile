@@ -1,6 +1,6 @@
 CFLAGS	= -std=c++98 -pedantic -Wall -Werror -Wextra
 CXX		= c++
-NAME	= zombies
+NAME	= zombies.out
 OBJS	= $(SRCS:.cpp=.o)
 RM		= rm -f
 SRCS	= Zombie.cpp \
