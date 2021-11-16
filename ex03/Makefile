@@ -1,0 +1,25 @@
+CFLAGS	= -std=c++98 -pedantic -Wall -Werror -Wextra
+CXX		= c++
+NAME	= unnecessary_violence.out
+OBJS	= $(SRCS:.cpp=.o)
+RM		= rm -f
+SRCS	= Weapon.cpp \
+		  HumanA.cpp \
+		  HumanB.cpp \
+		  main.cpp
+
+all: $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean $(NAME)
