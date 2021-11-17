@@ -1,9 +1,14 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main(void) {
-	Weapon* longsword = new Weapon("LongSword");
-	HumanA& human = new HumanA("Night elve", longsword);
+	Weapon longsword = Weapon("LongSword");
+	Weapon crossbow = Weapon("Crossbow");
+	HumanA elve = HumanA("Night elve", longsword);
+	HumanB dwarf = HumanB("Dwarf");
 
-	human.attack();
+	dwarf.setWeapon(&crossbow);
+	elve.attack();
+	dwarf.attack();
 }
