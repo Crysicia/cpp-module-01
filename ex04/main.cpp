@@ -2,13 +2,14 @@
 #include <iostream>
 #include <fstream>
 
-void ft_replace(std::string& string, const std::string& s1, const std::string& s2) {
+std::string& ft_replace(std::string& string, const std::string& s1, const std::string& s2) {
 	for (size_t position = 0; position < string.length(); position++) {
 		position = string.find(s1, position);
-		if (position >= string.length()) { return ; }
+		if (position >= string.length()) { return string; }
 		string.erase(position, s1.length());
 		string.insert(position, s2);
 	}
+	return string;
 }
 
 int main(int argc, char *argv[]) {
@@ -24,14 +25,13 @@ int main(int argc, char *argv[]) {
 	if (argc != 4 or filename.empty() or s1.empty() or s2.empty())
 		std::cout << "Invalid arguments" << std::endl;
 
-	std::ifstream infile(filename);
-	std::ofstream outfile(filename.append(".replace"));
+	std::ifstream infile(filename.c_str());
+	std::ofstream outfile(filename.append(".replace").c_str());
 
 	if (!infile.is_open() or !outfile.is_open()) { std::cout << "Could not open files" << std::endl; }
 
 	while (getline(infile, line)) {
-		ft_replace(line, s1, s2);
-		outfile << line << std::endl;
+		outfile << ft_replace(line, s1, s2) << std::endl;
 	}
 
 	infile.close();
