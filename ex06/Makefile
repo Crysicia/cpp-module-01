@@ -1,4 +1,4 @@
-CFLAGS	= -std=c++98 -pedantic -Wall -Werror -Wextra -Wimplicit-fallthrough=0
+CFLAGS	= -std=c++98 -pedantic -Wall -Werror -Wextra
 CXX		= c++
 NAME	= karenFilter
 OBJS	= $(SRCS:.cpp=.o)
