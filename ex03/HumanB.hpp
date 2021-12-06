@@ -2,6 +2,7 @@
 # define HUMAN_B_H
 
 #include <string>
+#include <iostream>
 #include "Weapon.hpp"
 
 class HumanB {
