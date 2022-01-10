@@ -8,6 +8,7 @@ std::string& ft_replace(std::string& string, const std::string& s1, const std::s
 		if (position >= string.length()) { return string; }
 		string.erase(position, s1.length());
 		string.insert(position, s2);
+		position += s2.length() - 1;
 	}
 	return string;
 }
