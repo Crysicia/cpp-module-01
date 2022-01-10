@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[]) {
 	Karen karen;
-	if (argc != 2) { std::cout << "Invalid arguments number, expecting 1 got " << argc - 1 << std::endl; return 1; }
+	if (argc != 2) { std::cout << "Invalid number of arguments, expecting 1 got " << argc - 1 << std::endl; return 1; }
 
 	// To make this switch statement compile on the Linux dumps, add  __attribute__ ((fallthrough)); after each case that should fall through
 	switch(karen.getLevelIndex(argv[1])) {
