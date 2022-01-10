@@ -17,13 +17,20 @@ int main(int argc, char *argv[]) {
 	const int S1 = 2;
 	const int S2 = 3;
 
+	if (argc != 4) {
+		std::cout << "Invalid arguments" << std::endl;
+		return 1;
+	}
+
 	std::string filename = argv[FILENAME];
 	std::string s1 = argv[S1];
 	std::string s2 = argv[S2];
 	std::string line;
 
-	if (argc != 4 or filename.empty() or s1.empty() or s2.empty())
+	if (filename.empty() or s1.empty() or s2.empty()) {
 		std::cout << "Invalid arguments" << std::endl;
+		return 1;
+	}
 
 	std::ifstream infile(filename.c_str());
 	std::ofstream outfile(filename.append(".replace").c_str());
