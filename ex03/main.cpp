@@ -15,8 +15,7 @@ int main(void) {
 	HumanB peon = HumanB("Orc");
 
 	std::cout << "---- Set weapons to HumanB guys ----" << std::endl;
-	dwarf.setWeapon(&crossbow);
-	peon.setWeapon(NULL);
+	dwarf.setWeapon(crossbow);
 
 	std::cout << "---- Make them all attack ! ----" << std::endl;
 	elve.attack();
@@ -24,4 +23,24 @@ int main(void) {
 
 	std::cout << "---- (this one has no weapon tho...) ----" << std::endl;
 	peon.attack();
+
+
+	std::cout << "---- Subject example ----" << std::endl;
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+
+	return 0;
 }
